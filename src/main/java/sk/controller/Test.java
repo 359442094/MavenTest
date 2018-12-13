@@ -23,10 +23,7 @@ public class Test {
         System.out.println("签名内容:"+sign);
         //签名结果转化为HEX字符串 sign域
         String encodeHexStr = HEXUtil.encodeHexStr(20, sign);
-
         System.out.println("sign域:"+encodeHexStr);
-
-
         //2.加密明文数据
         //生成秘钥
         String AesPrivateKey = Aes2Util.getA221();
@@ -39,7 +36,6 @@ public class Test {
         String json_enc = HEXUtil.encodeHexStr(20,AEScipherText);
 
         System.out.println("json_enc:"+json_enc);
-
 
         //3.RSA加密AES的秘钥
         //公钥加密AES加密后的秘钥
