@@ -3,7 +3,7 @@ package sk.keyGenerator;
 import java.util.Date;
 
 public class KeyGeneralTest {
-    //============================test========================\\
+    //============================controller========================\\
     public static void main(String[] args) {
         System.out.println("加载默认摘要算法为HmacMD5__:"+KeyGeneralUtil.initDefault());
 

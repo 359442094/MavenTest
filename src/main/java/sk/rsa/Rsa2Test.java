@@ -1,11 +1,16 @@
 package sk.rsa;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import sk.hex.HEXUtil;
+
+import java.util.Map;
+
 /**
  * 模拟真实场景
  * */
 public class Rsa2Test {
-    public static void main(String[] args) throws Exception
+    public static void main(String[]args) throws Exception
     {
         //生成公私钥文件
         //Rsa2Util.getKeyPair("C:/");

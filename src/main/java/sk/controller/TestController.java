@@ -1,11 +1,20 @@
-package sk.test;
+package sk.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import sk.aes.Aes2Util;
 import sk.hex.HEXUtil;
 import sk.rsa.Rsa2Util;
 
+import java.util.HashMap;
+import java.util.Map;
+@Controller
 public class TestController {
-    public static void main(String[] args) throws Exception {
+    @ResponseBody
+    @RequestMapping(path = "/sendJSON",method = RequestMethod.GET)
+    public static Map<String,Object> sendJSON() throws Exception {
         String plainText="测试明文内容";
 
         //生成公私钥文件
@@ -46,7 +55,12 @@ public class TestController {
         System.out.println("key_enc:"+key_enc);
         System.out.println("--------------------------------------");
 
+        Map<String,Object> maps=new HashMap<>();
 
+        maps.put("sign",encodeHexStr);
+        maps.put("json_enc",json_enc);
+        maps.put("key_enc",key_enc);
 
+        return maps;
     }
 }
