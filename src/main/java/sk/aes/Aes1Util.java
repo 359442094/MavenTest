@@ -10,7 +10,7 @@ import java.security.SecureRandom;
  * 对称加密
  * AES加密工具类
  * */
-public class AesUtil {
+public class Aes1Util {
     /**
      * AES加密字符串
      *

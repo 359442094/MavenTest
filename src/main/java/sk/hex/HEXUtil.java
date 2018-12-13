@@ -4,7 +4,7 @@ import org.apache.commons.codec.binary.Hex;
 /**
  * Hex 转换工具类
  * */
-public class Example {
+public class HEXUtil {
 /*
      * 将普通字符串转换成Hex编码字符串
      *
@@ -20,10 +20,11 @@ public class Example {
             try {
                 if (dataCoding == 15) {
                     hexStr = new String(Hex.encodeHex(realStr.getBytes("GBK")));
-                } else if ((dataCoding & 0x0C) == 0x08) {
+                }
+                else if ((dataCoding & 0x0C) == 0x08) {
                     hexStr = new String(Hex.encodeHex(realStr.getBytes("UnicodeBigUnmarked")));
                 } else {
-                    hexStr = new String(Hex.encodeHex(realStr.getBytes("ISO8859-1")));
+                    hexStr = new String(Hex.encodeHex(realStr.getBytes("UTF-8")));
                 }
             } catch (UnsupportedEncodingException e) {
                 System.out.println(e.toString());
@@ -46,10 +47,11 @@ public class Example {
             if (hexStr != null) {
                 if (dataCoding == 15) {
                     realStr = new String(Hex.decodeHex(hexStr.toCharArray()), "GBK");
-                } else if ((dataCoding & 0x0C) == 0x08) {
+                }
+                else if ((dataCoding & 0x0C) == 0x08) {
                     realStr = new String(Hex.decodeHex(hexStr.toCharArray()), "UnicodeBigUnmarked");
                 } else {
-                    realStr = new String(Hex.decodeHex(hexStr.toCharArray()), "ISO8859-1");
+                    realStr = new String(Hex.decodeHex(hexStr.toCharArray()), "UTF-8");
                 }
             }
         } catch (Exception e) {
