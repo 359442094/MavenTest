@@ -14,7 +14,7 @@ import java.util.Base64;
 /**
  * 工具类
  */
-public class RsaUtil {
+public class Rsa1Util {
     /*
         读取秘钥数据
      */

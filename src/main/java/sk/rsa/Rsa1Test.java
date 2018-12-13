@@ -6,20 +6,20 @@ import java.security.*;
  * 加签：私钥
  * 验签：公钥
  */
-public class RsaTest {
+public class Rsa1Test {
     private static String privateKeyPath="储存私钥信息的文件路径";
     private static String publicKeyPath="储存公钥信息的文件路径";
 
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException, SignatureException {
         String data="验证该数据是否为合法的服务器发送";
         //加签过程
-        PrivateKey privateKey = RsaUtil.getPrivateKey(privateKeyPath);
+        PrivateKey privateKey = Rsa1Util.getPrivateKey(privateKeyPath);
         Signature signature = Signature.getInstance("Sha1WithRSA");
         signature.initSign(privateKey);
         signature.update(data.getBytes("UTF-8"));
         byte[] signed = signature.sign();
         //验签过程
-        PublicKey publicKey = RsaUtil.getPublicKey(publicKeyPath);
+        PublicKey publicKey = Rsa1Util.getPublicKey(publicKeyPath);
         Signature signature2 = Signature.getInstance("Sha1WithRSA");
         signature2.initVerify(publicKey);
         signature2.update(data.getBytes("UTF-8"));
