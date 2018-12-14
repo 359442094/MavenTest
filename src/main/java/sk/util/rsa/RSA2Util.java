@@ -1,7 +1,7 @@
 package sk.util.rsa;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
-
+import sk.util.aes.AES2Util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -163,7 +163,9 @@ public class RSA2Util
             signature.initSign(priKey);
             signature.update(content.getBytes());
             byte[] sign = signature.sign();
-            return Base64.encode(sign);
+            //return Base64.encode(sign);
+            //return HEXUtil.encodeHexStr(20,new String(sign));
+            return AES2Util.byteToHexString(sign);
         }
         catch (Exception e)
         {
@@ -189,7 +191,7 @@ public class RSA2Util
             Signature signature = Signature.getInstance("SHA256withRSA");//MD5withRSA
             signature.initVerify(pubKey);
             signature.update(content.getBytes());
-            return signature.verify(Base64.decode(sign));
+            return signature.verify(AES2Util.hexStringToByte(sign)); //Base64.decode(sign)
         }
         catch (Exception e)
         {
@@ -217,7 +219,9 @@ public class RSA2Util
             cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
             byte[] output = cipher.doFinal(plainText.getBytes());
-            return Base64.encode(output);
+            //return Base64.encode(output);
+            //return HEXUtil.encodeHexStr(20,new String(output));
+            return AES2Util.byteToHexString(output);
         }
         catch(Exception e)
         {
@@ -236,6 +240,7 @@ public class RSA2Util
      */
     public static String decryptByPrivateKey(String cipherText,RSAPrivateKey privateKey) throws Exception
     {
+        byte[] bytes = AES2Util.hexStringToByte(cipherText);
         if(privateKey == null)
         {
             throw new Exception("私钥为空！");
@@ -245,7 +250,7 @@ public class RSA2Util
         {
             cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
-            byte[] output = cipher.doFinal(Base64.decode(cipherText));
+            byte[] output = cipher.doFinal(bytes); //Base64.decode(cipherText)
             return new String(output);
         }
         catch (Exception e)
