@@ -1,4 +1,4 @@
-package sk.keyGenerator;
+package sk.util.keyGenerator;
 
 import java.util.Date;
 

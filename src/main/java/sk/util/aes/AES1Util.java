@@ -1,4 +1,4 @@
-package sk.aes;
+package sk.util.aes;
 
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
@@ -10,7 +10,7 @@ import java.security.SecureRandom;
  * 对称加密
  * AES加密工具类
  * */
-public class Aes1Util {
+public class AES1Util {
     /**
      * AES加密字符串
      *

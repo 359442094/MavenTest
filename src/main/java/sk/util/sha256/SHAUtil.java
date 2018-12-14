@@ -1,4 +1,4 @@
-package sk.sha256;
+package sk.util.sha256;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

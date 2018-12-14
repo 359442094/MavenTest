@@ -1,4 +1,4 @@
-package sk.rsa;
+package sk.util.rsa;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
@@ -29,7 +29,7 @@ import javax.crypto.Cipher;
  * 加密数据大小不能超过127 bytes
  * @Description：加签、验签、加密、解密、生成公钥、私钥
  */
-public class Rsa2Util
+public class RSA2Util
 {
     /**
      * 生成公私钥对

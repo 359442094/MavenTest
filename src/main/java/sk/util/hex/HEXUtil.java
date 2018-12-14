@@ -1,4 +1,4 @@
-package sk.hex;
+package sk.util.hex;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary.Hex;
 /**

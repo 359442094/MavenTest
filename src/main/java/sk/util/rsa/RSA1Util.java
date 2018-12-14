@@ -1,4 +1,4 @@
-package sk.rsa;
+package sk.util.rsa;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -14,7 +14,7 @@ import java.util.Base64;
 /**
  * 工具类
  */
-public class Rsa1Util {
+public class RSA1Util {
     /*
         读取秘钥数据
      */

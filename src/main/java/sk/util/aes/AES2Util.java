@@ -1,4 +1,4 @@
-package sk.aes;
+package sk.util.aes;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -6,7 +6,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.NoSuchAlgorithmException;
 
-public class Aes2Util {
+public class AES2Util {
     /**
      * 自动生成AES128位密钥
      */

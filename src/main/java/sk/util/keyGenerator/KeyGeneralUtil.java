@@ -1,4 +1,4 @@
-package sk.keyGenerator;
+package sk.util.keyGenerator;
 import java.security.SecureRandom;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
