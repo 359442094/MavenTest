@@ -56,5 +56,4 @@ public class AES2Util {
         byte[] bjiemihou = cipher.doFinal(miwen);
         return new String(bjiemihou);
     }
-
 }

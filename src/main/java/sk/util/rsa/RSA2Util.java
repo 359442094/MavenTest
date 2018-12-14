@@ -37,7 +37,6 @@ public class RSA2Util
      * 生成公私钥对
      * @param filePath 生成文件路径
      */
-    @SuppressWarnings("static-access")
     public static void getKeyPair(String filePath)
     {
         KeyPairGenerator keyPairGenerator = null;
@@ -53,7 +52,6 @@ public class RSA2Util
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
         RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
-
         String publicKeyString = Base64.encode(publicKey.getEncoded());
         String privateKeyString = Base64.encode(privateKey.getEncoded());
         try
@@ -147,7 +145,6 @@ public class RSA2Util
         return null;
     }
 
-
     /**
      * 私钥加签
      * @param content 报文
@@ -232,7 +229,6 @@ public class RSA2Util
         return null;
     }
 
-
     /**
      * 私钥解密
      * @param cipherText 密文
@@ -260,6 +256,5 @@ public class RSA2Util
         }
         return null;
     }
-
 }
 
