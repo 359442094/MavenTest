@@ -37,6 +37,7 @@ public class RSA2Util
      * 生成公私钥对
      * @param filePath 生成文件路径
      */
+    @SuppressWarnings("static-access")
     public static void getKeyPair(String filePath)
     {
         KeyPairGenerator keyPairGenerator = null;
