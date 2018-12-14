@@ -193,9 +193,9 @@ public class Rsa2Util
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            return false;
+            //e.printStackTrace();
         }
-        return false;
     }
 
     /**
