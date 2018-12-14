@@ -85,12 +85,6 @@
         </dependency>
         <!-- JSONObject end -->
 
-        <!-- 生成GetSet组件 -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
-        </dependency>
 
 
     </dependencies>
