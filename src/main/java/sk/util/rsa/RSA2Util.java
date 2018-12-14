@@ -1,6 +1,8 @@
 package sk.util.rsa;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import sk.util.aes.AES2Util;
+import sk.util.hex.HEXUtil;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -163,7 +165,9 @@ public class RSA2Util
             signature.initSign(priKey);
             signature.update(content.getBytes());
             byte[] sign = signature.sign();
-            return Base64.encode(sign);
+            //return Base64.encode(sign);
+            //return HEXUtil.encodeHexStr(20,new String(sign));
+            return HEXUtil.byteToHexString(sign);
         }
         catch (Exception e)
         {
@@ -189,7 +193,7 @@ public class RSA2Util
             Signature signature = Signature.getInstance("SHA256withRSA");//MD5withRSA
             signature.initVerify(pubKey);
             signature.update(content.getBytes());
-            return signature.verify(Base64.decode(sign));
+            return signature.verify(HEXUtil.hexStringToByte(sign)); //Base64.decode(sign)
         }
         catch (Exception e)
         {
@@ -217,7 +221,9 @@ public class RSA2Util
             cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
             byte[] output = cipher.doFinal(plainText.getBytes());
-            return Base64.encode(output);
+            //return Base64.encode(output);
+            //return HEXUtil.encodeHexStr(20,new String(output));
+            return HEXUtil.byteToHexString(output);
         }
         catch(Exception e)
         {
@@ -245,7 +251,7 @@ public class RSA2Util
         {
             cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
-            byte[] output = cipher.doFinal(Base64.decode(cipherText));
+            byte[] output = cipher.doFinal(HEXUtil.hexStringToByte(cipherText)); //Base64.decode(cipherText)
             return new String(output);
         }
         catch (Exception e)

@@ -27,10 +27,10 @@ public class RSA2Test {
         System.out.println("---------------------------------------------");
 
         //签名结果转化为HEX字符串
-        String encodeHexStr = HEXUtil.encodeHexStr(20, sign);
+        String encodeHexStr = HEXUtil.encodeHexStr(sign);
         System.out.println("签名结果转化为HEX字符串:"+encodeHexStr); //sign
         //HEX字符串转化为签名结果
-        System.out.println("HEX字符串转化为签名结果:"+HEXUtil.decodeHexStr(20,encodeHexStr));
+        System.out.println("HEX字符串转化为签名结果:"+HEXUtil.decodeHexStr(encodeHexStr));
 
         System.out.println("---------------------------------------------");
 
